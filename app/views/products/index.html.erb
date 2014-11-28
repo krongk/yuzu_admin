@@ -1,6 +1,6 @@
 <h1>Listing products</h1>
 
-<table>
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>User</th>
@@ -23,11 +23,11 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= product.user %></td>
+        <td><%= link_to product.user.name, user_path(product.user) %></td>
         <td><%= product.cate_id %></td>
-        <td><%= product.region %></td>
-        <td><%= product.city %></td>
-        <td><%= product.district %></td>
+        <td><%= link_to product.region.try(:name), region_path(product.region) %></td>
+        <td><%= link_to product.city.try(:name), city_path(product.city) %></td>
+        <td><%= link_to product.district.try(:name), district_path(product.district) %></td>
         <td><%= product.title %></td>
         <td><%= product.content %></td>
         <td><%= product.price %></td>

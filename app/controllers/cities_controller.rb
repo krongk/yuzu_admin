@@ -4,7 +4,7 @@ class CitiesController < ApplicationController
   # GET /cities
   # GET /cities.json
   def index
-    @cities = City.all
+    @cities = City.order("updated_at DESC").page(params[:page])
   end
 
   # GET /cities/1

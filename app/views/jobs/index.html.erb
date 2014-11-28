@@ -1,6 +1,6 @@
 <h1>Listing jobs</h1>
 
-<table>
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>User</th>
@@ -23,11 +23,11 @@
   <tbody>
     <% @jobs.each do |job| %>
       <tr>
-        <td><%= job.user %></td>
+        <td><%= link_to job.user.name, user_path(job.user) %></td>
         <td><%= job.cate_id %></td>
-        <td><%= job.region %></td>
-        <td><%= job.city %></td>
-        <td><%= job.district %></td>
+        <td><%#= link_to job.region.try(:name), region_path(job.region) %></td>
+        <td><%#= link_to job.city.try(:name), city_path(job.city) %></td>
+        <td><%#= link_to job.district.try(:name), district_path(job.district) %></td>
         <td><%= job.title %></td>
         <td><%= job.salary %></td>
         <td><%= job.content %></td>

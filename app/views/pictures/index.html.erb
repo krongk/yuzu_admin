@@ -1,6 +1,6 @@
 <h1>Listing pictures</h1>
 
-<table>
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>User</th>
@@ -17,7 +17,7 @@
   <tbody>
     <% @pictures.each do |picture| %>
       <tr>
-        <td><%= picture.user %></td>
+        <td><%= link_to picture.user.name, user_path(picture.user) %></td>
         <td><%= picture.title %></td>
         <td><%= picture.source_type %></td>
         <td><%= picture.source_id %></td>

@@ -1,6 +1,6 @@
 <h1>Listing cities</h1>
 
-<table>
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>Region</th>
@@ -14,7 +14,7 @@
   <tbody>
     <% @cities.each do |city| %>
       <tr>
-        <td><%= city.region %></td>
+        <td><%= link_to city.region.try(:name), region_path(city.region) %></td>
         <td><%= city.name %></td>
         <td><%= link_to 'Show', city %></td>
         <td><%= link_to 'Edit', edit_city_path(city) %></td>

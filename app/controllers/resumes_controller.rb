@@ -4,7 +4,7 @@ class ResumesController < ApplicationController
   # GET /resumes
   # GET /resumes.json
   def index
-    @resumes = Resume.all
+    @resumes = Resume.order("updated_at DESC").page(params[:page])
   end
 
   # GET /resumes/1

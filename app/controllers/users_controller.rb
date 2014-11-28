@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def index
     authorize! :index, @user, :message => '没有管理员权限.'
-    @users = User.all
+    @users = User.order("updated_at DESC").page(params[:page])
   end
 
   def show

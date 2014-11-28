@@ -4,7 +4,7 @@ class NotificationsController < ApplicationController
   # GET /notifications
   # GET /notifications.json
   def index
-    @notifications = Notification.all
+    @notifications = Notification.order("updated_at DESC").page(params[:page])
   end
 
   # GET /notifications/1

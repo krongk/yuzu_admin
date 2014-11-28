@@ -20,7 +20,7 @@
       <td><%= user.roles.first.name.titleize unless user.roles.first.nil? %></td>
       <td>
         <a data-toggle="modal" href="#role-options-<%= user.id %>" class="btn btn-mini" type="button">修改权限</a>
-        <%= render user %>
+        <%= link_to render.user.name, user_path(render.user) %>
       </td>
       <td><%= link_to("删除用户", user_path(user), :data => { :confirm => "确定要删除吗?" }, :method => :delete, :class => 'btn btn-mini') unless user == current_user %></td>
     </tr>

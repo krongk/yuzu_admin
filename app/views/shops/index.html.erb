@@ -1,6 +1,6 @@
 <h1>Listing shops</h1>
 
-<table>
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>User</th>
@@ -29,10 +29,10 @@
   <tbody>
     <% @shops.each do |shop| %>
       <tr>
-        <td><%= shop.user %></td>
-        <td><%= shop.region %></td>
-        <td><%= shop.city %></td>
-        <td><%= shop.district %></td>
+        <td><strong><%= shop.id%>.</strong><%= link_to shop.user.name, user_path(shop.user) %></td>
+        <td><%#= link_to shop.region.try(:name), region_path(shop.region) %></td>
+        <td><%#= link_to shop.city.try(:name), city_path(shop.city) %></td>
+        <td><%#= link_to shop.district.try(:name), district_path(shop.district) %></td>
         <td><%= shop.title %></td>
         <td><%= shop.detail_address %></td>
         <td><%= shop.content %></td>

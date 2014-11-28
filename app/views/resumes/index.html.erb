@@ -1,6 +1,6 @@
 <h1>Listing resumes</h1>
 
-<table>
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>User</th>
@@ -31,11 +31,11 @@
   <tbody>
     <% @resumes.each do |resume| %>
       <tr>
-        <td><%= resume.user %></td>
+        <td><%= link_to resume.user.name, user_path(resume.user) %></td>
         <td><%= resume.cate_id %></td>
-        <td><%= resume.region %></td>
-        <td><%= resume.city %></td>
-        <td><%= resume.district %></td>
+        <td><%= link_to resume.region.try(:name), region_path(resume.region) %></td>
+        <td><%= link_to resume.city.try(:name), city_path(resume.city) %></td>
+        <td><%= link_to resume.district.try(:name), district_path(resume.district) %></td>
         <td><%= resume.name %></td>
         <td><%= resume.summary %></td>
         <td><%= resume.sex %></td>

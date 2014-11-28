@@ -4,7 +4,7 @@ class ShopsController < ApplicationController
   # GET /shops
   # GET /shops.json
   def index
-    @shops = Shop.all
+    @shops = Shop.order("updated_at DESC").page(params[:page])
   end
 
   # GET /shops/1
