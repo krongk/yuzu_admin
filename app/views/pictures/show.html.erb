@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @picture.user %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @picture.title %>
+</p>
+
+<p>
+  <strong>Source type:</strong>
+  <%= @picture.source_type %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @picture.source_id %>
+</p>
+
+<p>
+  <strong>External url:</strong>
+  <%= @picture.external_url %>
+</p>
+
+<%= link_to 'Edit', edit_picture_path(@picture) %> |
+<%= link_to 'Back', pictures_path %>
