@@ -48,6 +48,10 @@ class ShopsController < ApplicationController
   def update
     respond_to do |format|
       if @shop.update(shop_params)
+        if @shop.mobile_phone =~ /\d{11}/
+          @shop.user.mobile_phone = @shop.mobile_phone
+          @shop.user.save
+        end
         format.html { redirect_to @shop, notice: 'Shop was successfully updated.' }
         format.json { head :no_content }
       else
