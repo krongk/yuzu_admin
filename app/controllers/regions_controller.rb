@@ -4,7 +4,7 @@ class RegionsController < ApplicationController
   # GET /regions
   # GET /regions.json
   def index
-    @regions = Region.order("updated_at DESC").page(params[:page])
+    @regions = Region.page(params[:page])
   end
 
   # GET /regions/1

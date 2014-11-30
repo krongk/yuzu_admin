@@ -1,55 +1,56 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @shop.user %>
+  <strong>会员:</strong>
+  <%= @shop.user.name %>
 </p>
 
 <p>
-  <strong>Region:</strong>
+  <strong>省:</strong>
   <%= @shop.region %>
 </p>
 
 <p>
-  <strong>City:</strong>
+  <strong>市:</strong>
   <%= @shop.city %>
 </p>
 
 <p>
-  <strong>District:</strong>
+  <strong>区:</strong>
   <%= @shop.district %>
 </p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @shop.title %>
-</p>
-
-<p>
-  <strong>Detail address:</strong>
+  <strong>详细地址:</strong>
   <%= @shop.detail_address %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong>标题:</strong>
+  <%= @shop.title %>
+</p>
+
+
+<p>
+  <strong>简介:</strong>
   <%= @shop.content %>
 </p>
 
 <p>
-  <strong>Contact name:</strong>
+  <strong>联系人:</strong>
   <%= @shop.contact_name %>
 </p>
 
 <p>
-  <strong>Mobile phone:</strong>
+  <strong>手机号码:</strong>
   <%= @shop.mobile_phone %>
 </p>
 
 <p>
-  <strong>Mobile phone url:</strong>
-  <%= @shop.mobile_phone_url %>
+  <strong>手机号码验证链接:</strong>
+  <%= image_tag @shop.mobile_phone_url %>
 </p>
-
+<!-- 
 <p>
   <strong>Email:</strong>
   <%= @shop.email %>
@@ -59,31 +60,22 @@
   <strong>Email url:</strong>
   <%= @shop.email_url %>
 </p>
-
+ -->
 <p>
-  <strong>Website:</strong>
+  <strong>网址:</strong>
   <%= @shop.website %>
 </p>
 
 <p>
-  <strong>Pv:</strong>
-  <%= @shop.pv %>
-</p>
-
-<p>
-  <strong>Source:</strong>
+  <strong>来源:</strong>
   <%= @shop.source %>
 </p>
 
 <p>
-  <strong>Source url:</strong>
-  <%= @shop.source_url %>
+  <strong>原文地址:</strong>
+  <%= link_to @shop.source_url, @shop.source_url, target: '_blank' %>
 </p>
 
-<p>
-  <strong>Is processed:</strong>
-  <%= @shop.is_processed %>
-</p>
-
-<%= link_to 'Edit', edit_shop_path(@shop) %> |
-<%= link_to 'Back', shops_path %>
+<hr/>
+<%= link_to '编辑', edit_shop_path(@shop) %> |
+<%= link_to '返回', shops_path %>

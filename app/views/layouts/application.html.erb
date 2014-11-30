@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title><%= content_for?(:title) ? yield(:title) : "RainCMS" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "RainCMS" %>">
+    <title><%= content_for?(:title) ? yield(:title) : "Zuyu114" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Zuyu114" %>">
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
@@ -19,7 +19,7 @@
     
     <!-- Fixed navbar -->
     <header>
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation" style="background: #ffcc00;">
         <div class="container">
           <%= render 'layouts/navigation' %>
         </div>

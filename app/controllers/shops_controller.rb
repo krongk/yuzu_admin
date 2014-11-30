@@ -1,10 +1,16 @@
 class ShopsController < ApplicationController
-  before_action :set_shop, only: [:show, :edit, :update, :destroy]
+  before_action :set_shop, only: [:process_update, :show, :edit, :update, :destroy]
 
   # GET /shops
   # GET /shops.json
   def index
-    @shops = Shop.order("updated_at DESC").page(params[:page])
+    if params[:q] == 'y'
+      @shops = Shop.where(is_processed: 'y').page(params[:page])
+    elsif params[:q] == 'n'
+      @shops = Shop.where(is_processed: 'n').page(params[:page])
+    else
+      @shops = Shop.page(params[:page])
+    end
   end
 
   # GET /shops/1
@@ -54,7 +60,14 @@ class ShopsController < ApplicationController
   # DELETE /shops/1
   # DELETE /shops/1.json
   def destroy
-    @shop.destroy
+    ActiveRecord::Base.transaction do
+      @shop.user.jobs.destroy_all
+      @shop.user.products.destroy_all
+      @shop.user.photos.destroy_all
+      @shop.user.destroy
+      @shop.destroy
+    end
+
     respond_to do |format|
       format.html { redirect_to shops_url }
       format.json { head :no_content }

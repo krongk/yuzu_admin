@@ -1,0 +1,35 @@
+<h1>Listing photos</h1>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Title</th>
+      <th>Source type</th>
+      <th>Source</th>
+      <th>External url</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @photos.each do |photo| %>
+      <tr>
+        <td><%= link_to photo.user.name, user_path(photo.user) %></td>
+        <td><%= photo.title %></td>
+        <td><%= photo.source_type %></td>
+        <td><%= photo.source_id %></td>
+        <td><%= photo.external_url %></td>
+        <td><%= link_to 'Show', photo %></td>
+        <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
+        <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Picture', new_photo_path %>

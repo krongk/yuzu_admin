@@ -1,18 +1,26 @@
 <div class="navbar-header">
   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-    <span class="sr-only">RainCMS</span>
+    <span class="sr-only">Zuyu114</span>
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
   </button>
-  <a class="navbar-brand" href="#"><span class="blue">Rain</span><span class="orange">CMS</span></a>
+  <a class="navbar-brand" href="#"><span class="blue">ZuYu</span><span class="orange">114</span></a>
 </div>
 <div class="navbar-collapse collapse">
   <% if user_signed_in? %>
     <ul class="nav navbar-nav">
-      <li><%= link_to '商家', shops_path %></li>
-      <li><%= link_to '商家发布', products_path %></li>
-      <li><%= link_to '招聘信息', jobs_path %></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">商家 <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><%= link_to '未处理', shops_path(q: 'n') %></li>
+          <li><%= link_to '已处理', shops_path(q: 'y') %></li>
+          <li><%= link_to '所有商家', shops_path %></li>
+        </ul>
+      </li>
+      <li><%= link_to '招聘信息管理', jobs_path %></li>
+      <li><%= link_to '信息发布管理', products_path %></li>
+      
       <li><%= link_to '个人简历', resumes_path %></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">省市区 <b class="caret"></b></a>

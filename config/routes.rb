@@ -10,12 +10,11 @@ RainCms::Application.routes.draw do
 
   resources :jobs
 
-  resources :shops
+  resources :shops do
+  end
 
   resources :districts
-
   resources :cities
-
   resources :regions
 
   namespace :admin do
@@ -57,6 +56,4 @@ RainCms::Application.routes.draw do
   #  :classify_type => /title|date|skip/ }
   match '/:channel(/:id)', to: "welcome#index", via: :get
   match '/:channel(/page/:page)', to: "welcome#index", via: :get
-
-
 end

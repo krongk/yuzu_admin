@@ -1,59 +1,59 @@
-<h1>Listing shops</h1>
+<h1>商家列表</h1>
 
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>User</th>
-      <th>Region</th>
-      <th>City</th>
-      <th>District</th>
-      <th>Title</th>
-      <th>Detail address</th>
-      <th>Content</th>
-      <th>Contact name</th>
-      <th>Mobile phone</th>
-      <th>Mobile phone url</th>
-      <th>Email</th>
-      <th>Email url</th>
-      <th>Website</th>
-      <th>Pv</th>
-      <th>Source</th>
-      <th>Source url</th>
-      <th>Is processed</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>名称</th>
+      <th>地址</th>
+      <th>联系人</th>
+      <th>联系电话</th>
+      <th>公司网站</th>
+      <th>来源</th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @shops.each do |shop| %>
+      <%= simple_form_for(shop, class: "form-inline", remote: true) do |f| %>
+        <%= f.input :is_processed, as: :hidden, input_html: {value: 'y'} %>
       <tr>
         <td><strong><%= shop.id%>.</strong><%= link_to shop.user.name, user_path(shop.user) %></td>
-        <td><%#= link_to shop.region.try(:name), region_path(shop.region) %></td>
-        <td><%#= link_to shop.city.try(:name), city_path(shop.city) %></td>
-        <td><%#= link_to shop.district.try(:name), district_path(shop.district) %></td>
-        <td><%= shop.title %></td>
-        <td><%= shop.detail_address %></td>
-        <td><%= shop.content %></td>
+        <td>
+          <% if shop.region %>
+            <%= link_to shop.region.name, region_path(shop.region.id) %>
+          <% end %>
+          <% if shop.city %>
+            <%= link_to shop.city.name, city_path(shop.city.id) %>
+          <% end %>
+          <% if shop.district %>
+            <%= link_to shop.district.name, district_path(shop.district.id) %>
+          <% end %>
+          <%= shop.detail_address %>
+        </td>
         <td><%= shop.contact_name %></td>
-        <td><%= shop.mobile_phone %></td>
-        <td><%= shop.mobile_phone_url %></td>
-        <td><%= shop.email %></td>
-        <td><%= shop.email_url %></td>
-        <td><%= shop.website %></td>
-        <td><%= shop.pv %></td>
-        <td><%= shop.source %></td>
-        <td><%= shop.source_url %></td>
-        <td><%= shop.is_processed %></td>
-        <td><%= link_to 'Show', shop %></td>
-        <td><%= link_to 'Edit', edit_shop_path(shop) %></td>
-        <td><%= link_to 'Destroy', shop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <% if shop.is_processed == 'n' %>       
+          <td>
+            <%= image_tag shop.mobile_phone_url %>
+            <div id="<%= shop.id %>">
+              <%= f.input :mobile_phone %>
+              <%= f.submit '更新' %>
+            </div>
+          </td>
+        <% else %>
+          <td><%= shop.mobile_phone %></td>
+        <% end %>
+        <td><%= link_to_if shop.website, shop.website, shop.website, target: '_blank' %></td>
+        <td><%= link_to shop.source, shop.source_url, target: '_blank'  %></td>
+        <td><%= link_to '详情', shop %></td>
+        <td><%= link_to '修改', edit_shop_path(shop) %></td>
+        <td><%= link_to '删除', shop, method: :delete, data: { confirm: '确定要删除?' } %></td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
 
+<%= will_paginate @shops %>
 <br>
-
-<%= link_to 'New Shop', new_shop_path %>

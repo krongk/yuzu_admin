@@ -1,59 +1,51 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @job.user %>
+  <strong>会员:</strong>
+  <%= @job.user.name %>
 </p>
 
 <p>
   <strong>Cate:</strong>
-  <%= @job.cate_id %>
+  <%= ApplicationHelper::JOB_CATES[@job.cate_id] %>
 </p>
 
 <p>
-  <strong>Region:</strong>
+  <strong>省:</strong>
   <%= @job.region %>
 </p>
 
 <p>
-  <strong>City:</strong>
+  <strong>市:</strong>
   <%= @job.city %>
 </p>
 
 <p>
-  <strong>District:</strong>
+  <strong>区:</strong>
   <%= @job.district %>
 </p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>地址:</strong>
+  <%= @job.detail_address %>
+</p>
+
+
+<p>
+  <strong>标题:</strong>
   <%= @job.title %>
 </p>
 
 <p>
-  <strong>Salary:</strong>
+  <strong>薪资:</strong>
   <%= @job.salary %>
 </p>
 
 <p>
-  <strong>Content:</strong>
-  <%= @job.content %>
+  <strong>内容:</strong>
+  <%= raw @job.content %>
 </p>
 
-<p>
-  <strong>Detail address:</strong>
-  <%= @job.detail_address %>
-</p>
-
-<p>
-  <strong>Pv:</strong>
-  <%= @job.pv %>
-</p>
-
-<p>
-  <strong>Is processed:</strong>
-  <%= @job.is_processed %>
-</p>
-
-<%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
+<hr/>
+<%= link_to '修改', edit_job_path(@job) %> |
+<%= link_to '返回', jobs_path %>

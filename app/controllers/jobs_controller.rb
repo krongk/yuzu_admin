@@ -4,7 +4,7 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.order("updated_at DESC").page(params[:page])
+    @jobs = Job.page(params[:page])
   end
 
   # GET /jobs/1

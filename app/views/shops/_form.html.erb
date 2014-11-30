@@ -11,9 +11,17 @@
     <%= f.input :content %>
     <%= f.input :contact_name %>
     <%= f.input :mobile_phone %>
-    <%= f.input :mobile_phone_url %>
+    <% if @shop.new_record? %>
+      <%= f.input :mobile_phone_url %>
+    <% else %>
+      <%= image_tag @shop.mobile_phone_url %>
+    <% end %>
     <%= f.input :email %>
-    <%= f.input :email_url %>
+    <% if @shop.new_record? %>
+      <%= f.input :email_url %>
+    <% else %>
+      <%= image_tag @shop.email_url %>
+    <% end %>
     <%= f.input :website %>
     <%= f.input :pv %>
     <%= f.input :source %>
