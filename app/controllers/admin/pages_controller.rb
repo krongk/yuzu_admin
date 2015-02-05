@@ -36,7 +36,7 @@ class Admin::PagesController < Admin::ApplicationController
         update_tag(@admin_page)
 
         format.html { redirect_to admin_pages_path, notice: '页面添加成功！' }
-        format.json { render action: 'show', status: :created, location: @admin_page }
+        format.json { render action: '详细', status: :created, location: @admin_page }
       else
         format.html { render action: 'new' }
         format.json { render json: @admin_page.errors, status: :unprocessable_entity }
@@ -66,7 +66,7 @@ class Admin::PagesController < Admin::ApplicationController
         format.html { redirect_to admin_pages_path, notice: '页面更新成功.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: '编辑' }
         format.json { render json: @admin_page.errors, status: :unprocessable_entity }
       end
     end

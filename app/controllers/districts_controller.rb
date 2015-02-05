@@ -4,7 +4,7 @@ class DistrictsController < ApplicationController
   # GET /districts
   # GET /districts.json
   def index
-    @districts = District.order("updated_at DESC").page(params[:page])
+    @districts = District.page(params[:page])
   end
 
   # GET /districts/1
@@ -29,7 +29,7 @@ class DistrictsController < ApplicationController
     respond_to do |format|
       if @district.save
         format.html { redirect_to @district, notice: 'District was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @district }
+        format.json { render action: '详细', status: :created, location: @district }
       else
         format.html { render action: 'new' }
         format.json { render json: @district.errors, status: :unprocessable_entity }
@@ -45,7 +45,7 @@ class DistrictsController < ApplicationController
         format.html { redirect_to @district, notice: 'District was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: '编辑' }
         format.json { render json: @district.errors, status: :unprocessable_entity }
       end
     end

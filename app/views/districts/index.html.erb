@@ -16,9 +16,9 @@
       <tr>
         <td><%= link_to district.city.try(:name), city_path(district.city) %></td>
         <td><%= district.name %></td>
-        <td><%= link_to 'Show', district %></td>
-        <td><%= link_to 'Edit', edit_district_path(district) %></td>
-        <td><%= link_to 'Destroy', district, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '详细', district %></td>
+        <td><%= link_to '编辑', edit_district_path(district) %></td>
+        <td><%= link_to '删除', district, method: :delete, data: { confirm: '是否删除？' } %></td>
       </tr>
     <% end %>
   </tbody>

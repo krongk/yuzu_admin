@@ -20,7 +20,7 @@ gem 'acts-as-taggable-on'
 gem 'sitemap_generator'
 gem 'whenever', :require => false
 # For linux
-gem 'therubyracer', :platform=>:ruby
+#gem 'therubyracer', :platform=>:ruby
 
 #page caching
 # http://www.rubytutorial.io/page-caching-with-rails-4

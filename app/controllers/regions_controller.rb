@@ -29,7 +29,7 @@ class RegionsController < ApplicationController
     respond_to do |format|
       if @region.save
         format.html { redirect_to @region, notice: 'Region was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @region }
+        format.json { render action: '详细', status: :created, location: @region }
       else
         format.html { render action: 'new' }
         format.json { render json: @region.errors, status: :unprocessable_entity }
@@ -45,7 +45,7 @@ class RegionsController < ApplicationController
         format.html { redirect_to @region, notice: 'Region was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: '编辑' }
         format.json { render json: @region.errors, status: :unprocessable_entity }
       end
     end

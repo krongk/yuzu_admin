@@ -4,7 +4,7 @@ class CitiesController < ApplicationController
   # GET /cities
   # GET /cities.json
   def index
-    @cities = City.order("updated_at DESC").page(params[:page])
+    @cities = City.page(params[:page])
   end
 
   # GET /cities/1
@@ -29,7 +29,7 @@ class CitiesController < ApplicationController
     respond_to do |format|
       if @city.save
         format.html { redirect_to @city, notice: 'City was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @city }
+        format.json { render action: '详细', status: :created, location: @city }
       else
         format.html { render action: 'new' }
         format.json { render json: @city.errors, status: :unprocessable_entity }
@@ -45,7 +45,7 @@ class CitiesController < ApplicationController
         format.html { redirect_to @city, notice: 'City was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: '编辑' }
         format.json { render json: @city.errors, status: :unprocessable_entity }
       end
     end

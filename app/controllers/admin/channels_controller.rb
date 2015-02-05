@@ -35,7 +35,7 @@ class Admin::ChannelsController < Admin::ApplicationController
       if @admin_channel.save
         update_tag(@admin_channel)
         format.html { redirect_to @admin_channel, notice: '栏目添加成功.' }
-        format.json { render action: 'show', status: :created, location: @admin_channel }
+        format.json { render action: '详细', status: :created, location: @admin_channel }
       else
         format.html { render action: 'new' }
         format.json { render json: @admin_channel.errors, status: :unprocessable_entity }
@@ -65,7 +65,7 @@ class Admin::ChannelsController < Admin::ApplicationController
         format.html { redirect_to @admin_channel, notice: '栏目更新成功.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: '编辑' }
         format.json { render json: @admin_channel.errors, status: :unprocessable_entity }
       end
     end

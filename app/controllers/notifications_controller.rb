@@ -29,7 +29,7 @@ class NotificationsController < ApplicationController
     respond_to do |format|
       if @notification.save
         format.html { redirect_to @notification, notice: 'Notification was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @notification }
+        format.json { render action: '详细', status: :created, location: @notification }
       else
         format.html { render action: 'new' }
         format.json { render json: @notification.errors, status: :unprocessable_entity }
@@ -45,7 +45,7 @@ class NotificationsController < ApplicationController
         format.html { redirect_to @notification, notice: 'Notification was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: '编辑' }
         format.json { render json: @notification.errors, status: :unprocessable_entity }
       end
     end

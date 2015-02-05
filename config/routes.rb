@@ -2,7 +2,7 @@ RainCms::Application.routes.draw do
   
   resources :notifications
 
-  resources :pictures
+  resources :photos
 
   resources :resumes
 

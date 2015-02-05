@@ -7,7 +7,7 @@ class ShopsController < ApplicationController
     if params[:q] == 'y'
       @shops = Shop.where(is_processed: 'y').page(params[:page])
     elsif params[:q] == 'n'
-      @shops = Shop.where(is_processed: 'n').page(params[:page])
+      @shops = Shop.where(is_processed: 'n').where('mobile_phone_url is not null').page(params[:page])
     else
       @shops = Shop.page(params[:page])
     end
@@ -35,7 +35,7 @@ class ShopsController < ApplicationController
     respond_to do |format|
       if @shop.save
         format.html { redirect_to @shop, notice: 'Shop was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @shop }
+        format.json { render action: '详细', status: :created, location: @shop }
       else
         format.html { render action: 'new' }
         format.json { render json: @shop.errors, status: :unprocessable_entity }
@@ -55,7 +55,7 @@ class ShopsController < ApplicationController
         format.html { redirect_to @shop, notice: 'Shop was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: '编辑' }
         format.json { render json: @shop.errors, status: :unprocessable_entity }
       end
     end

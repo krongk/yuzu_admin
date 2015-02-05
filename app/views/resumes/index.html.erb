@@ -1,27 +1,23 @@
-<h1>Listing resumes</h1>
+<h1>简历列表</h1>
 
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>User</th>
-      <th>Cate</th>
-      <th>Region</th>
-      <th>City</th>
-      <th>District</th>
-      <th>Name</th>
-      <th>Summary</th>
-      <th>Sex</th>
-      <th>Age</th>
-      <th>Education</th>
-      <th>Work year</th>
-      <th>Content</th>
-      <th>Mobile phone</th>
-      <th>Mobile phone str</th>
+      <th>用户</th>
+      <th>类型</th>
+      
+      <th>名称</th>
+      <th>详细</th>
+      <th>性别</th>
+      <th>年龄</th>
+      <th>教育</th>
+      <th>工作经历</th>
+      <th>介绍</th>
+      <th>手机号码</th>
       <th>Email</th>
-      <th>Qq</th>
-      <th>Pv</th>
-      <th>Fav</th>
-      <th>Is processed</th>
+      <th>QQ</th>
+      <th>页面浏览量</th>
+      <th>执行情况</th>
       <th></th>
       <th></th>
       <th></th>
@@ -33,9 +29,7 @@
       <tr>
         <td><%= link_to resume.user.name, user_path(resume.user) %></td>
         <td><%= resume.cate_id %></td>
-        <td><%= link_to resume.region.try(:name), region_path(resume.region) %></td>
-        <td><%= link_to resume.city.try(:name), city_path(resume.city) %></td>
-        <td><%= link_to resume.district.try(:name), district_path(resume.district) %></td>
+        
         <td><%= resume.name %></td>
         <td><%= resume.summary %></td>
         <td><%= resume.sex %></td>
@@ -44,15 +38,14 @@
         <td><%= resume.work_year %></td>
         <td><%= resume.content %></td>
         <td><%= resume.mobile_phone %></td>
-        <td><%= resume.mobile_phone_str %></td>
         <td><%= resume.email %></td>
         <td><%= resume.qq %></td>
         <td><%= resume.pv %></td>
         <td><%= resume.fav %></td>
         <td><%= resume.is_processed %></td>
-        <td><%= link_to 'Show', resume %></td>
-        <td><%= link_to 'Edit', edit_resume_path(resume) %></td>
-        <td><%= link_to 'Destroy', resume, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '详细', resume %></td>
+        <td><%= link_to '编辑', edit_resume_path(resume) %></td>
+        <td><%= link_to '删除', resume, method: :delete, data: { confirm: '是否删除？' } %></td>
       </tr>
     <% end %>
   </tbody>

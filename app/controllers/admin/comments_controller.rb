@@ -29,7 +29,7 @@ class Admin::CommentsController < Admin::ApplicationController
     respond_to do |format|
       if @admin_comment.save
         format.html { redirect_to admin_comments_path, notice: '添加成功.' }
-        format.json { render action: 'show', status: :created, location: @admin_comment }
+        format.json { render action: '详细', status: :created, location: @admin_comment }
       else
         format.html { render action: 'new' }
         format.json { render json: @admin_comment.errors, status: :unprocessable_entity }
@@ -50,7 +50,7 @@ class Admin::CommentsController < Admin::ApplicationController
         format.html { redirect_to admin_comments_path, notice: '修改成功.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: '编辑' }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end

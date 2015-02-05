@@ -32,7 +32,7 @@ class Admin::ForagesController < Admin::ApplicationController
     respond_to do |format|
       if @admin_forage.save
         format.html { redirect_to admin_forages_path, notice: '采集数据添加成功.' }
-        format.json { render action: 'show', status: :created, location: @admin_forage }
+        format.json { render action: '详细', status: :created, location: @admin_forage }
       else
         format.html { render action: 'new' }
         format.json { render json: @admin_forage.errors, status: :unprocessable_entity }
@@ -61,7 +61,7 @@ class Admin::ForagesController < Admin::ApplicationController
         format.html { redirect_to edit_admin_page_path(@admin_page), notice: '数据合并成功，请修改格式并保存.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: '编辑' }
         format.json { render json: @admin_forage.errors, status: :unprocessable_entity }
       end
     end

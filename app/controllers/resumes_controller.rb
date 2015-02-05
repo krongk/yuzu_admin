@@ -29,7 +29,7 @@ class ResumesController < ApplicationController
     respond_to do |format|
       if @resume.save
         format.html { redirect_to @resume, notice: 'Resume was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @resume }
+        format.json { render action: '详细', status: :created, location: @resume }
       else
         format.html { render action: 'new' }
         format.json { render json: @resume.errors, status: :unprocessable_entity }
@@ -45,7 +45,7 @@ class ResumesController < ApplicationController
         format.html { redirect_to @resume, notice: 'Resume was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: '编辑' }
         format.json { render json: @resume.errors, status: :unprocessable_entity }
       end
     end

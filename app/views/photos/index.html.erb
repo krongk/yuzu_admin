@@ -1,4 +1,4 @@
-<h1>Listing photos</h1>
+<h1>图片列表</h1>
 
 <table class="table table-bordered table-striped">
   <thead>
@@ -22,14 +22,12 @@
         <td><%= photo.source_type %></td>
         <td><%= photo.source_id %></td>
         <td><%= photo.external_url %></td>
-        <td><%= link_to 'Show', photo %></td>
-        <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-        <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '详细', photo %></td>
+        <td><%= link_to '编辑', edit_photo_path(photo) %></td>
+        <td><%= link_to '删除', photo, method: :delete, data: { confirm: '是否删除？' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Picture', new_photo_path %>

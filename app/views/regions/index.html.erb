@@ -14,9 +14,9 @@
     <% @regions.each do |region| %>
       <tr>
         <td><%= region.name %></td>
-        <td><%= link_to 'Show', region %></td>
-        <td><%= link_to 'Edit', edit_region_path(region) %></td>
-        <td><%= link_to 'Destroy', region, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '详细', region %></td>
+        <td><%= link_to '编辑', edit_region_path(region) %></td>
+        <td><%= link_to '删除', region, method: :delete, data: { confirm: '是否删除？' } %></td>
       </tr>
     <% end %>
   </tbody>
